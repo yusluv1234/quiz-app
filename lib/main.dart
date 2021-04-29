@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'quiz_brain.dart';
 
@@ -36,11 +38,7 @@ class _QuizPageState extends State<QuizPage> {
 
     setState(() {
       if (quizBrain.isFinished() == true) {
-        Alert(
-          context: context,
-          title: 'Finished!',
-          desc: 'You\'ve reached the end of the quiz.',
-        ).show();
+        _onBasicWaitingAlertPressed(context);
 
         quizBrain.reset();
 
@@ -132,4 +130,10 @@ class _QuizPageState extends State<QuizPage> {
   }
 }
 
-Alert({BuildContext context, String title, String desc}) {}
+_onBasicWaitingAlertPressed(context) async {
+  await Alert(
+    context: context,
+    title: "Hi Agba_dev",
+    desc: "you've reach the end start over!",
+  ).show();
+}
